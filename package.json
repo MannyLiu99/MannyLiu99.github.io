@@ -1,7 +1,7 @@
 {
   "name": "gulp-manager",
   "version": "1.0.0",
-  "description": "",
+  "description": "gulp-manger",
   "main": "service.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -26,5 +26,10 @@
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "gulp.spritesmith": "^6.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MannyLiu99/MannyLiu99.github.io.git"
+  },
+  "readme": "ERROR: No README data found!"
 }
