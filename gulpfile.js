@@ -38,7 +38,7 @@ globalOption.res = {
         imagesrc: path.join(BRANCH, 'src/images')
     },
     dest: {
-        jsdest: path.join(BRANCH, 'ldist/javascripts'),
+        jsdest: path.join(BRANCH, 'dist/javascripts'),
         lessdest: path.join(BRANCH, 'dist/stylesheets'),
         imagedest: path.join(BRANCH, 'dist/images')
     },
@@ -49,11 +49,12 @@ globalOption.browsersyncConfig = {
     init: {
         server: {
             baseDir: __dirname,
-            index: 'examples/index.html'
+            index: 'index.html'
         },
         // proxy: ''
     },
-    files: [globalOption.res.src.jssrc, globalOption.res.src.lesssrc, globalOption.res.src.imagesrc, path.join(BRANCH, 'examples')]
+    // files: [globalOption.res.src.jssrc, globalOption.res.src.lesssrc, globalOption.res.src.imagesrc, path.join(BRANCH, 'examples')]
+    files: [globalOption.res.src.jssrc, globalOption.res.src.lesssrc, globalOption.res.src.imagesrc, path.join(BRANCH, 'examples'), path.join(BRANCH,'index.html')]
 };
 
 globalOption.spriteConfig = {
