@@ -72,7 +72,7 @@ header{
 }
 .main-container{
   display: flex;
-  border-bottom: 4rem;
+  padding-bottom: 4rem;
   .row{
     flex: 1;
     ul{
@@ -81,6 +81,21 @@ header{
       }
     }
 
+  }
+  .dedd{
+    display: flex;
+    div{
+      flex: 1;
+      &:first-child{
+        background: #fff;
+      }
+      &:nth-child(2){
+        background: rgb(245,216,37);
+      }
+      &:nth-child(3){
+        background: #000;
+      }
+    }
   }
 }
 .tool-bar{
