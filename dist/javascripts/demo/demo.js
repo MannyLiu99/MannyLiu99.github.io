@@ -1,1 +1,1 @@
-var a=0,b=0;
+var add=function(){var n=0;return console.log("11111::::"+n),function(){console.log("2222::::"+n);var o=n+=1;return console.log("33333::::"+n),console.log("44444::::"+o),o}}();function myFunction(){document.getElementById("demo").innerHTML=add()}console.log("aa:"+add),console.log("typeof:"+typeof add);
