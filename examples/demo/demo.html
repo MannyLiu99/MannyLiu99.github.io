@@ -14,7 +14,142 @@
 <button type="button" onclick="myFunction()">计数!</button>
 <p id="demo">0</p>
 
+
+<div class="shanxing shanxing1">
+    <div class="sx1"></div>
+    <div class="sx2"></div>
+</div>
+<!--*绘制一个85度扇形*/
+<div class="shanxing shanxing2">
+    <div class="sx1"></div>
+     <div class="sx2"></div>
+</div>
+&lt;!&ndash;*绘制一个向右扇形，90度扇形*&ndash;&gt;
+<div class="shanxing shanxing3">
+    <div class="sx1"></div>
+    <div class="sx2"></div>
+</div>
+&lt;!&ndash;*绘制一个颜色扇形 */&ndash;&gt;
+<div class="shanxing shanxing4">
+    <div class="sx1"></div>
+     <div class="sx2"></div>
+</div>
+&lt;!&ndash;/*绘制一个不同颜色半圆夹角 */&ndash;&gt;
+<div class="shanxing shanxing5">
+    <div class="sx1"></div>
+    <div class="sx2"></div>
+</div>-->
+<style>
+    .shanxing{
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border-radius: 100px;
+        background-color: yellow;
+    }
+    .sx1{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        transform: rotate(0deg);
+        clip: rect(0px,100px,200px,0px); /*这个clip属性用来绘制半圆，在clip的rect范围内的内容显示出来，使用clip属性，元素必须是absolute的 */
+        border-radius: 100px;
+        background-color: #f00;
+        /*-webkit-animation: an1 2s infinite linear; */
+    }
+    .sx2{
+        position: absolute;
+        width: 200px;
+        height: 200px;
+        transform: rotate(0deg);
+        clip: rect(0px,100px,200px,0px);
+        border-radius: 100px;
+        background-color: #f00;
+        /*-webkit-animation: an2 2s infinite linear;*/
+    }
+    /*绘制一个60度扇形*/
+    .shanxing1 .sx1{transform: rotate(-30deg);background: #7b8b6f}
+    .shanxing1 .sx2{transform: rotate(-150deg); background: #9ca8b8}
+    /*绘制一个85度扇形*/
+    .shanxing2 .sx1{transform: rotate(-45deg);}
+    .shanxing2 .sx2{transform: rotate(-140deg);}
+    /*绘制一个向右扇形，90度扇形*/
+    .shanxing3 .sx1{transform: rotate(45deg);}
+    .shanxing3 .sx2{transform: rotate(-45deg);}
+    /*绘制一个颜色扇形 */
+    .shanxing4 .sx1{transform: rotate(45deg);background-color: #fff;}
+    .shanxing4 .sx2{transform: rotate(-45deg);background-color: #fff;}
+    /*绘制一个不同颜色半圆夹角 */
+    .shanxing5 .sx1{transform: rotate(45deg);background-color: #f00;}
+    .shanxing5 .sx2{transform: rotate(-45deg);background-color: #0f0;}
+</style>
+
 <script src="../../dist/javascripts/demo/demo.js"></script>
+
+<script>
+    /*简单工厂模式 */
+    let Fruit = function (name) {
+        function Apple() {
+            this.name = 'apple';
+            this.color = 'red';
+            console.log('this is an apple!')
+        }
+        function Banana() {
+            this.name = 'banana';
+            this.color = 'yellow';
+            console.log('this is a banana!')
+        }
+        switch (name){
+            case 'apple': return new Apple(); break;
+            case 'banana': return new Banana(); break;
+            default: throw new Error('参数为水果名字，如apple');
+        }
+    };
+    let apple = Fruit('apple');
+    let banana = Fruit('banana');
+    // let ab = Fruit('bb');
+
+    /*工厂方法 */
+    let Fruit1 = function (name){
+        function CreateFruit(fruit) {
+            this.name = fruit.name;
+            this.color = fruit.color;
+            console.log(`this is a ${fruit.name}!`);
+        }
+        switch(name){
+            case 'apple': return new CreateFruit({name:'apple',color:'red'});break;
+            case 'banana': return new CreateFruit({name: 'banana', color: 'yellow'});break;
+            default: throw new Error('参数错误：参数为水果名，如apple')
+        }
+    }
+    let apple1 = Fruit1('apple');
+    let banana1 = Fruit1('banana');
+
+    /*抽象工厂*/
+
+    /*ES6中的工厂*/
+    /*ES6中的简单工厂*/
+    class Fruit3{
+    //构造器
+        constructor(opt){
+            this.name = opt.name;
+            this.color = opt.color;
+            console.log(`this is a ${opt.name}!`);
+        }
+        static getInstance(fruitName){
+            switch (fruitName){
+                case 'apple': return new Fruit3({name:'apple',color:'red'});break;
+                case 'banana': return new Fruit3({name:'banana', color:'yellow'});break;
+                default: throw new Error('参数错误：参数为水果名，如apple');
+            }
+        }
+    }
+    let apple3 = Fruit3.getInstance('apple');
+
+
+
+</script>
+
 
 </body>
 </html>
