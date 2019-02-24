@@ -107,6 +107,20 @@ gulp.task('image', function(arg) {
     return action(arr.src, arr.dest, 'image');
 });
 
+// js babel: es5 => es6
+gulp.task('babel', function (arg) {
+    var babel = require('gulp-babel');
+    var arr = Object.assign({
+        src: res.src.jssrc,
+        dest: res.dest.jsdest
+    }, arg);
+
+    return gulp.src(arr.src)
+        .pipe(plumber())
+        .pipe(babel())
+        .pipe(gulp.dest(arr.dest));
+});
+
 /*
 * 执行
 * */

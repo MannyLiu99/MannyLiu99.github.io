@@ -11,7 +11,7 @@
   ],
   "author": "manny <2192414704@qq.com>",
   "license": "ISC",
-  "dependencies": {
+  "devDependencies": {
     "autoprefixer": "^6.5.4",
     "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
@@ -25,7 +25,17 @@
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
-    "gulp.spritesmith": "^6.2.1"
+    "gulp.spritesmith": "^6.2.1",
+    "babel-cli": "^6.26.0 ",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "repository": {
     "type": "git",
