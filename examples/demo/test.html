@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>闭包测试</title>
+    <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+</head>
+<body>
+<div> it is time to test 闭包</div>
+<button type="button" onclick="myFunction()">计数!</button>
+
+
+<script>
+    function myFunction(){
+        function Foo () {
+            var getName = function () {
+                console.log('1')
+            }
+            // return this
+        }
+        Foo.getName = function () {
+            console.log('2')
+        }
+        Foo.prototype.getName = function () {
+            console.log('3')
+        }
+        var getName = function () {
+            console.log('4')
+        }
+        function getName () {
+            console.log('5')
+        }
+
+        debugger
+        Foo.getName();// 2
+        getName();// 4
+        Foo();
+        getName();// 4
+        new Foo.getName();// 2
+        new Foo().getName();// 3
+        new new Foo().getName();// 3
+    }
+</script>
+
+</body>
+</html>
